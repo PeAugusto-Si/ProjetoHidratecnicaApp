@@ -9,7 +9,6 @@ const CadastroServicos = () => {
   const [servicoDesejado, setServicoDesejado] = useState('');
 
   const cadastrarServico = () => {
-    // alerta
     Alert.alert('Cadastrado com sucesso!');
   };
 
@@ -95,6 +94,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
+    shadowColor: '#000', // Adiciona sombra aos botões
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
   botaoTexto: {
     color: '#fff', // Cor do texto branco
@@ -104,3 +108,4 @@ const styles = StyleSheet.create({
 });
 
 export default CadastroServicos;
+

@@ -2,20 +2,19 @@ import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Servicos from './Servicos'; 
-import CadastroServicos from './CadastroServicos'; 
-import Calendario from './Calendario'; 
-import NotificationService from './src/NotificationService'; 
+import Servicos from './Servicos';
+import CadastroServicos from './CadastroServicos';
+import Calendario from './Calendario';
+import NotificationService from './src/NotificationService';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   useEffect(() => {
-    
     NotificationService.createChannel();
 
-    // Agendar uma notificação 
-    const date = new Date(Date.now() + 30 * 1000); 
+    // Agendar uma notificação
+    const date = new Date(Date.now() + 30 * 1000);
     const message = 'Esta é uma notificação agendada!';
     NotificationService.scheduleNotification(date, message);
   }, []);
@@ -26,7 +25,7 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Hidratécnica App' }}
+          options={{ title: 'HidratécnicaApp' }}
         />
         <Stack.Screen name="Servicos" component={Servicos} />
         <Stack.Screen name="CadastroServicos" component={CadastroServicos} />
@@ -84,28 +83,43 @@ const styles = StyleSheet.create({
   logo: {
     width: 200,
     height: 200,
+    borderRadius: 100, // Adiciona bordas arredondadas à logo
+    marginBottom: 20,
   },
   presentationText: {
     textAlign: 'center',
     fontSize: 16,
     marginVertical: 20,
     color: '#fff', // Cor do texto branco
+    paddingHorizontal: 20,
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
-    marginBottom: 20,
+    paddingVertical: 10,
   },
   button: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#2980b9', // Cor do botão azul mais escuro
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 15,
     borderRadius: 5,
+    shadowColor: '#000', // Adiciona sombra aos botões
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
   buttonText: {
     color: '#fff', // Cor do texto branco
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
 export default App;
+
+
+
